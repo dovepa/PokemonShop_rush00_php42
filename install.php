@@ -50,17 +50,16 @@
 								  `id` int(11) NOT NULL AUTO_INCREMENT,
 								  `prod_id` int(11) NOT NULL,
 								  `cat_id` int(11) NOT NULL,
-								  `cat_id2` int(11) NOT NULL,
 								  PRIMARY KEY (`id`)
 								) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;");
-	$req = mysqli_query($mysqli, "INSERT INTO `prod_categorie` (`prod_id`, `cat_id`, `cat_id2`) VALUES
-								(1, 1, 3),
-								(2, 1, 1),
-								(3, 1, 1),
-								(4, 1, 3),
-								(5, 2, 1),
-								(6, 2, 2),
-								(7, 2, 1);");
+	$req = mysqli_query($mysqli, "INSERT INTO `prod_categorie` (`prod_id`, `cat_id`) VALUES
+								(1, 1),
+								(2, 1),
+								(3, 1),
+								(4, 1),
+								(5, 2),
+								(6, 2),
+								(7, 2);");
 	//$req = mysqli_query($mysqli, "DROP TABLE IF EXISTS `users`;");
 	$req = mysqli_query($mysqli, "CREATE TABLE IF NOT EXISTS `users` (
 							  `id` int(11) NOT NULL AUTO_INCREMENT,

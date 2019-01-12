@@ -16,8 +16,7 @@
 	}
 	else if ($_GET['cat'] != NULL)
 	{
-		if ($req = mysqli_query($mysqli, "SELECT * FROM prod_categorie WHERE (cat_id='" .intval($_GET['cat']) ."'
-																			OR cat_id2='" .intval($_GET['cat']) ."')"))
+		if ($req = mysqli_query($mysqli, "SELECT * FROM prod_categorie WHERE cat_id='" .intval($_GET['cat']) ."'"))
 		{
 			while ($row = mysqli_fetch_assoc($req))
 			{
