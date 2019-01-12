@@ -13,8 +13,10 @@
 				}
 			?>
 			</div>
+			<div class="productdiv">
 			<ul class="products">
 				<?php require_once('required/product.php'); ?>
 			</ul>
+			</div>
 		</div>
 <?php require_once('required/footer.php'); ?>
