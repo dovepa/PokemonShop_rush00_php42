@@ -1,12 +1,25 @@
+<?php
+
+if (session_status() == PHP_SESSION_NONE) { session_start(); }
+if (isset($_SESSION['auth']['id']))
+{
+	$_SESSION['msg'][] = "Vous êtes deja connecter";
+	header('Location: index.php');
+	exit();
+}
+
+?>
+
 <?php require_once('required/header.php'); ?>
 		<div class="containermiddle">
+            <?php require_once('required/msg.php'); ?>
             <div class="help">
                 <p>Merci de vous identifier afin d'accéder à votre compte.</p>
                 <p>Besoin d'Assistance ?</p>
                 <p>Hotline 24/24 7j/7 au +33(0)1.23.45.67.89</p>
             </div>
             <div class="coform">
-                <form action="required/login.php" method="POST">
+                <form action="login.php" method="POST">
                 <p>Identifiant:<input type="text" name="login" value="" /></p>
                 <p>Mot de passe: <input type="password" name="passwd" value="" /></p>
                 <input type="submit" name="submit" value="OK"/>

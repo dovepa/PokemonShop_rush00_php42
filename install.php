@@ -79,6 +79,7 @@
 							  `password` varchar(255) NOT NULL,
 							  PRIMARY KEY (`id`)
 							) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;");
+	$req = mysqli_query($mysqli, "INSERT INTO `users` (`id`, `username`, `password`) VALUES	(1, 'dove', 'dove');");
 
 	if (session_status() == PHP_SESSION_NONE) { session_start(); }
 	if ($_SESSION['auth'] != NULL)

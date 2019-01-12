@@ -37,14 +37,13 @@
 
 				<div class="menu">
 				<?php
-			/////////////////////////////////////////////////	unset($_SESSION['auth']);
 				if (isset($_SESSION['auth']['id'])){ ?>
 					<div class="title"><a href="required/logout.php">Déconnection</a></div>
 				<?php }
 				else{ ?>
-					<div class="title"><a href="connexion.php">Mon Compte</a></div>
+					<div class="title"><a href="login.php">Mon Compte</a></div>
 					<div class="menu-content">
-						<a href="connexion.php">Connexion</a>
+						<a href="login.php">Connexion</a>
 						<a href="nwaccount.php">Inscription</a>
 					</div>
 				<?php } ?>

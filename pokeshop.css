@@ -116,6 +116,7 @@ font-size: 15px;
 .menu {
 	position: relative;
 	display: inline-block;
+	z-index: 10;
 }
 
 .menu a {
@@ -188,6 +189,11 @@ ul.products li {
 .product-img {
 	width: 250px;
 	height: 250px;
+	margin: -10px;
+	-webkit-filter: drop-shadow(-10px -10px 8px #222);
+		filter: drop-shadow(-10px -10px 8px #222);
+		position: relative;
+		z-index: 1;
 }
 
 .productdiv {
