@@ -1,5 +1,5 @@
 body {
-	background-color: #1c2b1f;
+	background-color: #4B77BE;
 	background-repeat: repeat;
 }
 
@@ -35,7 +35,7 @@ p.footer{
 	font-size: 22px;
 }
 
-#arrowhead {
+#pokefoot {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
@@ -89,7 +89,6 @@ p.ipub {
 
 .containermiddle{
 	width: 100%;
-	/*height: 147px;*/
 	background: white;
 }
 
@@ -170,7 +169,7 @@ ul.products li {
 	width: 250px;
 	margin: 15px;
     display: inline-block;
-	border: 2px solid green;
+	border: 2px solid red;
 	text-align: center;
 }
 

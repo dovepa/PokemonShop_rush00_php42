@@ -5,11 +5,11 @@
 			<?php
 				if ($_GET['cat'] == NULL)
 				{
-					echo '<p class="ipub">40 ans d’expérience, ça compte ! C’est le temps qu’il faut pour se forger l’expérience nécessaire,
-					pour définir ce qu’est « le bon arc de chasse». Nous vous proposons dans cette rubrique notre sélection
-					d’arcs traditionnels ou à poulies. Nous avons fait le choix audacieux de nous inviter à vous assister en
-					plaçant les produits de cette rubrique dans un devis avant de valider votre achat. Nous pourrons de cette
-					manière, nous assurer que votre choix est le plus adapté à vos besoins.</p>';
+					echo "<p class='ipub'>D'accord, attraper un max de Pokémon pour remplir son Pokédex, c'est amusant.
+					Mais monter une équipe formidable, à même d'affronter les Champions d'Arène et de défier d'autres
+					Dresseurs (vos amis inclus), c'est encore mieux ! Pour vous lancer dans ces combats épiques,
+					il vous faudra être capable d'improviser de nouvelles stratégies dans le feu de l'action. Vous devrez être prêt à tout,
+					car vos adversaires ne vous laisseront pas le moindre répit !</p>";
 				}
 			?>
 			</div>

@@ -18,9 +18,9 @@
 								  PRIMARY KEY (`id`)
 								) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;");
 	$req = mysqli_query($mysqli, "INSERT INTO `categories_ref` (`id`, `name`) VALUES
-									(1, 'Arc'),
-									(2, 'Fleche'),
-									(3, 'Jeux Enfant');");
+									(1, 'Type Eau'),
+									(2, 'Type Feu'),
+									(3, 'Type Plante');");
 	$req = mysqli_query($mysqli, "DROP TABLE IF EXISTS `manager`;");
 	$req = mysqli_query($mysqli, "CREATE TABLE IF NOT EXISTS `manager` (
 							  `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -46,29 +46,32 @@
 								  PRIMARY KEY (`id`)
 								) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;");
 	$req = mysqli_query($mysqli, "INSERT INTO `products` (`id`, `name`, `price`, `img`) VALUES
-								(1, 'Arc Nerf', 40.65, 'img/arcnerf.jpg'),
-								(2, 'Arc à Poulie', 3.99, 'img/arcpoulie.jpg'),
-								(3, 'Arc Noir', 78.6, 'img/arcnoir.jpg'),
-								(4, 'Arc Enfant', 4.50, 'img/arcenfant.jpg'),
-								(5, 'Fléche Rasoir', 8.33, 'img/picrasoir.jpg'),
-								(6, 'Fléche Jaune', 17.20, 'img/flechejaune.jpg'),
-								(7, 'Fleche Orange', 10.00, 'img/forange.jpg');");
+								(1, 'Bulbizarre', 40.65, 'img/bulbizarre.png'),
+								(2, 'Dracofeu', 3.99, 'img/dracofeu.png'),
+								(3, 'Dracolosse', 78.6, 'img/dracolosse.png'),
+								(4, 'Evoli', 4.50, 'img/evoli.png'),
+								(5, 'Minidraco', 8.33, 'img/minidraco.png'),
+								(6, 'Philali', 17.20, 'img/philali.png'),
+								(7, 'Reptincel', 10.00, 'img/reptincel.png'),
+								(8, 'Roserade', 10.00, 'img/roserade.png');");
 	$req = mysqli_query($mysqli, "DROP TABLE IF EXISTS `prod_categorie`;");
 	$req = mysqli_query($mysqli, "CREATE TABLE IF NOT EXISTS `prod_categorie` (
 								  `id` int(11) NOT NULL AUTO_INCREMENT,
 								  `prod_id` int(11) NOT NULL,
 								  `cat_id` int(11) NOT NULL,
-								  `cat_id2` int(11) NOT NULL,
 								  PRIMARY KEY (`id`)
 								) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;");
-	$req = mysqli_query($mysqli, "INSERT INTO `prod_categorie` (`prod_id`, `cat_id`, `cat_id2`) VALUES
-								(1, 1, 3),
-								(2, 1, 1),
-								(3, 1, 1),
-								(4, 1, 3),
-								(5, 2, 1),
-								(6, 2, 2),
-								(7, 2, 1);");
+	$req = mysqli_query($mysqli, "INSERT INTO `prod_categorie` (`prod_id`, `cat_id`) VALUES
+								(1, 3),
+								(2, 2),
+								(3, 1),
+								(4, 1),
+								(4, 2),
+								(4, 3),
+								(5, 1),
+								(6, 3),
+								(7, 2),
+								(8, 3);");
 	$req = mysqli_query($mysqli, "DROP TABLE IF EXISTS `users`;");
 	$req = mysqli_query($mysqli, "CREATE TABLE IF NOT EXISTS `users` (
 							  `id` int(11) NOT NULL AUTO_INCREMENT,

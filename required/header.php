@@ -6,23 +6,14 @@
 <html>
 <head>
     <meta charset="UTF-8">
-	<title>Arrow Shop</title>
-	<link rel="stylesheet" href="arrowshop.css">
+	<title>Pokemon Shop</title>
+	<link rel="stylesheet" href="pokeshop.css">
 </head>
 <body>
 	<div class="containerall">
 		<div class="containerheader">
-			<a href="index.php"><img src="img/arrow.jpg" class="imgheader" alt=""></a>
+			<a href="index.php"><img src="img/pokehead.png" class="imgheader" alt=""></a>
 			<div class="menud">
-				<div class="menu">
-				<div class="title"><a href="https://www.societe.com/societe/sas-tir-a-l-arc-amenagement-843894163.html">Qui sommes Nous ?</a></div>
-					<div class="menu-content">
-						<a href="https://www.societe.com/societe/sas-tir-a-l-arc-amenagement-843894163.html">Notre Entreprise</a>
-						<a href="https://www.ffta.fr/">La Fédération</a>
-						<a href="https://fr.wikipedia.org/wiki/Tir_%C3%A0_l%27arc_aux_Jeux_olympiques">Les J.O.</a>
-					</div>
-				</div>
-
 				<div class="menu">
 				<div class="title"><a href="index.php">Produits</a></div>
 					<div class="menu-content">
