@@ -1,9 +1,17 @@
 <?php
-	require_once 'required/database.php';
+	$host = "localhost";
+	$user = "root";
+	$password = "123456";
+
+	$mysqli   = mysqli_connect($host, $user, $password);
+
+	if (mysqli_connect_errno($mysqli)) {
+	   echo "Failed to connect to MySQL: " . mysqli_connect_error();
+	}
 	$req = mysqli_query($mysqli, "DROP DATABASE IF EXISTS 'rush00';");
 	$req = mysqli_query($mysqli, "CREATE DATABASE rush00 DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci");
-	$req = mysqli_query($mysqli, 'USE rush00;');
-	//$req = mysqli_query($mysqli, "DROP TABLE IF EXISTS `categories_ref`;");
+	$req = mysqli_query($mysqli, 'use rush00;');
+	$req = mysqli_query($mysqli, "DROP TABLE IF EXISTS `categories_ref`;");
 	$req = mysqli_query($mysqli, "CREATE TABLE IF NOT EXISTS `categories_ref` (
 								  `id` int(11) NOT NULL AUTO_INCREMENT,
 								  `name` varchar(255) NOT NULL,
@@ -13,13 +21,13 @@
 									(1, 'Arc'),
 									(2, 'Fleche'),
 									(3, 'Jeux Enfant');");
-	//$req = mysqli_query($mysqli, "DROP TABLE IF EXISTS `manager`;");
+	$req = mysqli_query($mysqli, "DROP TABLE IF EXISTS `manager`;");
 	$req = mysqli_query($mysqli, "CREATE TABLE IF NOT EXISTS `manager` (
 							  `id` int(11) NOT NULL AUTO_INCREMENT,
 							  `user_id` int(11) NOT NULL,
 							  PRIMARY KEY (`id`)
-							) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;");
-	//$req = mysqli_query($mysqli, "DROP TABLE IF EXISTS `orders`;");
+							) ENGINE=MyISAM DEFAULT CHARSET=utf8;");
+	$req = mysqli_query($mysqli, "DROP TABLE IF EXISTS `orders`;");
 	$req = mysqli_query($mysqli, "CREATE TABLE IF NOT EXISTS `orders` (
 							  `id` int(11) NOT NULL AUTO_INCREMENT,
 							  `buyer_id` int(11) NOT NULL,
@@ -29,7 +37,7 @@
 							  `total_cmd` float NOT NULL,
 							  PRIMARY KEY (`id`)
 							) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;");
-	//$req = mysqli_query($mysqli, "DROP TABLE IF EXISTS `products`;");
+	$req = mysqli_query($mysqli, "DROP TABLE IF EXISTS `products`;");
 	$req = mysqli_query($mysqli, "CREATE TABLE IF NOT EXISTS `products` (
 								  `id` int(11) NOT NULL AUTO_INCREMENT,
 								  `name` varchar(255) NOT NULL,
@@ -45,22 +53,23 @@
 								(5, 'Fléche Rasoir', 8.33, 'img/picrasoir.jpg'),
 								(6, 'Fléche Jaune', 17.20, 'img/flechejaune.jpg'),
 								(7, 'Fleche Orange', 10.00, 'img/forange.jpg');");
-	//$req = mysqli_query($mysqli, "DROP TABLE IF EXISTS `prod_categorie`;");
+	$req = mysqli_query($mysqli, "DROP TABLE IF EXISTS `prod_categorie`;");
 	$req = mysqli_query($mysqli, "CREATE TABLE IF NOT EXISTS `prod_categorie` (
 								  `id` int(11) NOT NULL AUTO_INCREMENT,
 								  `prod_id` int(11) NOT NULL,
 								  `cat_id` int(11) NOT NULL,
+								  `cat_id2` int(11) NOT NULL,
 								  PRIMARY KEY (`id`)
 								) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;");
-	$req = mysqli_query($mysqli, "INSERT INTO `prod_categorie` (`prod_id`, `cat_id`) VALUES
-								(1, 1),
-								(2, 1),
-								(3, 1),
-								(4, 1),
-								(5, 2),
-								(6, 2),
-								(7, 2);");
-	//$req = mysqli_query($mysqli, "DROP TABLE IF EXISTS `users`;");
+	$req = mysqli_query($mysqli, "INSERT INTO `prod_categorie` (`prod_id`, `cat_id`, `cat_id2`) VALUES
+								(1, 1, 3),
+								(2, 1, 1),
+								(3, 1, 1),
+								(4, 1, 3),
+								(5, 2, 1),
+								(6, 2, 2),
+								(7, 2, 1);");
+	$req = mysqli_query($mysqli, "DROP TABLE IF EXISTS `users`;");
 	$req = mysqli_query($mysqli, "CREATE TABLE IF NOT EXISTS `users` (
 							  `id` int(11) NOT NULL AUTO_INCREMENT,
 							  `username` varchar(255) NOT NULL,
