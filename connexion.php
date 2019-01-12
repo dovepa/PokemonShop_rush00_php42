@@ -6,7 +6,7 @@
                 <p>Hotline 24/24 7j/7 au +33(0)1.23.45.67.89</p>
             </div>
             <div class="coform">
-                <form action="login.php" method="POST">
+                <form action="required/login.php" method="POST">
                 <p>Identifiant:<input type="text" name="login" value="" /></p>
                 <p>Mot de passe: <input type="password" name="passwd" value="" /></p>
                 <input type="submit" name="submit" value="OK"/>
