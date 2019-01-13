@@ -74,11 +74,12 @@
 
 				<div class="menu">
 				<?php
+					$i = 0;
 					if (isset($_SESSION['cart']))
 					{
 						foreach ($_SESSION['cart'] as $val)
 							$i++;
-						$pro = "(".($i-1).")";
+						$pro = "(".($i).")";
 					}
 				?>
 				<div class="title"><a href="cart.php">Pannier <?php echo $pro ?></a></div>
