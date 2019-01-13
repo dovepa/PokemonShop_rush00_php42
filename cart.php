@@ -13,7 +13,7 @@
 				}
 				if ($_SESSION['cart'] == NULL)
 				{
-					$_SESSION['msg'][] = "Votre panier est vide!";
+					$_SESSION['msg'][] = "Votre panier est vide remplisez le pour acceder au pannier !";
 					header('Location: index.php');
 					exit();
 				}

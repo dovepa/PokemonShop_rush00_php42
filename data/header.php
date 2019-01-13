@@ -15,7 +15,7 @@
 			<a href="index.php"><img src="img/pokehead.png" class="imgheader" alt=""></a>
 			<div class="menud">
 				<div class="menu">
-				<div class="title"><a href="index.php">Produits</a></div>
+				<div class="title"><a href="index.php">Accueil</a></div>
 					<div class="menu-content">
 						<?php
 							require_once 'database.php';

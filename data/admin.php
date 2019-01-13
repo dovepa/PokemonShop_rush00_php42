@@ -105,7 +105,7 @@ else
 			if ($prod)
 			{
 				require_once 'data/database.php';
-				$req = mysqli_query($mysqli, "UPDATE products SET price='".floatval($price)."' WHERE id='".intval($id) ."';;");
+				$req = mysqli_query($mysqli, "UPDATE products SET price='".floatval($price)."' WHERE id='".intval($id) ."';");
 				$_SESSION['msg'][] = "Modif OK";
 				header('Location: manager.php');
 				exit();
@@ -139,7 +139,7 @@ else
 			require_once 'data/database.php';
 			$catid = mysqli_real_escape_string($mysqli, $_POST['catid']);
 			$prodid = mysqli_real_escape_string($mysqli, intval($_POST['prodid']));
-			$req = mysqli_query($mysqli, "SELECT id FROM prod_categorie WHERE prod_id='" .intval($prodid) ."' AND cat_id='" .intval($catid) ."';;");
+			$req = mysqli_query($mysqli, "SELECT id FROM prod_categorie WHERE prod_id='" .intval($prodid) ."' AND cat_id='" .intval($catid) ."';");
 			$result = mysqli_fetch_assoc($req);
 			if ($result)
 			{
@@ -321,7 +321,7 @@ else
 			if ($prod)
 			{
 				require_once 'data/database.php';
-				$req = mysqli_query($mysqli, "UPDATE categories_ref SET name='".$modcat."' WHERE id='".intval($idcat) ."';;");
+				$req = mysqli_query($mysqli, "UPDATE categories_ref SET name='".$modcat."' WHERE id='".intval($idcat) ."';");
 				$_SESSION['msg'][] = "Modif OK";
 				header('Location: manager.php');
 				exit();
