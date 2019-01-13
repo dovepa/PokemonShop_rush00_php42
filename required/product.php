@@ -30,9 +30,16 @@
 						<p >'.$row['price'].' € </p>
 						<a href="add_to_cart.php?id=' .intval($row['id']).'&name='.$row['name'].'"><p>Ajouter au panier</p></a>
 					</li>';
+					$valpro++;
 					}
 				}
 			}
+		}
+		if ($valpro == 0)
+		{
+			$_SESSION['msg'][] = "La categorie est vide dsl";
+			header('Location: index.php');
+			exit();
 		}
 	}
 ?>

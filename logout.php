@@ -8,6 +8,7 @@
 	{
 		unset($_SESSION['auth']);
 		unset($_SESSION['cart']);
+		session_destroy();
 	}
 	$_SESSION['msg'][] = "Vous etes bien deconnecter";
 	header('Location: index.php');
