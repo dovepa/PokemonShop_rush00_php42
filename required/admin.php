@@ -9,6 +9,7 @@ if (empty($_SESSION['auth']['id']))
 
 require_once 'required/database.php';
 $id = $_SESSION['auth']['id'];
+$id = mysqli_real_escape_string($mysqli, $id);
 if ($req = mysqli_query($mysqli, "SELECT * FROM manager WHERE user_id='" .intval($id) ."'"))
 {
 	while ($user = mysqli_fetch_assoc($req))
@@ -36,7 +37,8 @@ else
 		if (!empty($_POST['aduser']) && is_numeric($_POST['aduser']))
 		{
 			require_once 'required/database.php';
-			$req = mysqli_query($mysqli, "SELECT id FROM manager WHERE id='" .intval($_POST['aduser']) ."';");
+			$aduser = mysqli_real_escape_string($mysqli, intval($_POST['aduser']));
+			$req = mysqli_query($mysqli, "SELECT id FROM manager WHERE id='" .intval($aduser) ."';");
 			if ($user = mysqli_fetch_assoc($req))
 			{
 				$j = 1;
@@ -411,7 +413,7 @@ else
 		if (!empty($idtest))
 		{
 			require_once 'required/database.php';
-			$testid = mysqli_real_escape_string($mysqli, intval($testid));
+			$testid = mysqli_real_escape_string($mysqli, intval($idtest));
 			$req = mysqli_query($mysqli, "SELECT * FROM users WHERE id='$idtest'");
 			if ($user = mysqli_fetch_assoc($req))
 			{
