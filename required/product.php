@@ -16,11 +16,13 @@
 	}
 	else if ($_GET['cat'] != NULL)
 	{
-		if ($req = mysqli_query($mysqli, "SELECT * FROM prod_categorie WHERE cat_id='" .intval($_GET['cat']) ."'"))
+		$cat = mysqli_real_escape_string($mysqli, $_GET['cat']);
+		if ($req = mysqli_query($mysqli, "SELECT * FROM prod_categorie WHERE cat_id='" .intval($cat) ."'"))
 		{
 			while ($row = mysqli_fetch_assoc($req))
 			{
-				if ($reqprod = mysqli_query($mysqli, "SELECT * FROM products WHERE id='" .intval($row['prod_id']) ."'"))
+				$rowe = mysqli_real_escape_string($mysqli, $row['prod_id']);
+				if ($reqprod = mysqli_query($mysqli, "SELECT * FROM products WHERE id='" .intval($rowe) ."'"))
 				{
 					while ($row = mysqli_fetch_assoc($reqprod))
 					{

@@ -31,7 +31,6 @@ else
 		exit();
 	}
 
-	//mettre un user admin
 	if ($_POST['adbtn'] === "OK")
 	{
 		if (!empty($_POST['aduser']) && is_numeric($_POST['aduser']))
@@ -53,7 +52,6 @@ else
 	}
 
 
-	//ajouter un produit
 	if ($_POST['addbtn'] === "OK")
 	{
 		if(!empty($_POST['name']) && !empty($_POST['price']) && !empty($_POST['img']))
@@ -89,7 +87,6 @@ else
 		}
 	}
 
-	//Modif un produit
 	if ($_POST['modbtn'] === "OK")
 	{
 		if (!empty($_POST['modid']) && !empty($_POST['modprice']))
@@ -129,7 +126,6 @@ else
 		}
 	}
 
-	//Assigner un produit a une categorie
 	if ($_POST['rcbtn'] === "OK")
 	{
 		if (!empty($_POST['catid']) && !empty($_POST['prodid']))
@@ -169,7 +165,6 @@ else
 		}
 	}
 
-	//Reitrer produit de cat
 	if ($_POST['dcbtn'] === "OK")
 	{
 		if (!empty($_POST['delprodid']) && !empty($_POST['delcatid']))
@@ -209,7 +204,7 @@ else
 		}
 	}
 
-	//Supprimer un produit
+
 	if ($_POST['dellbtn'] === "OK")
 	{
 		if (!empty($_POST['delproductid']))
@@ -249,7 +244,7 @@ else
 		}
 	}
 
-	//Ajouter une categorie
+	
 	if ($_POST['addcbtn'] === "OK")
 	{
 		if (!empty($_POST['addcname']))
@@ -269,7 +264,7 @@ else
 		}
 	}
 
-	//supprimer une categorie
+	
 	if ($_POST['rmcbtn'] === "OK")
 	{
 		if (!empty($_POST['rmcid']))
@@ -308,7 +303,6 @@ else
 		}
 	}
 
-	//modif categorie
 	if ($_POST['modcbtn'] === "OK")
 	{
 		if (!empty($_POST['idcat']) && !empty($_POST['modcat']))
@@ -349,7 +343,6 @@ else
 	}
 
 
-	// New User
 	if ($_POST['newuserbtn'] === "OK")
 	{
 		if (!empty($_POST['newuserid']) && !empty($_POST['newuserpasswd']))
@@ -364,7 +357,6 @@ else
 		}
 	}
 
-	//mettre un user admin
 	if ($_POST['adbtn'] === "OK")
 	{
 		$testid = $_POST['aduser'];
@@ -406,7 +398,7 @@ else
 		}
 	}
 
-	//del un user
+
 	if ($_POST['deluserbtn'] === "OK")
 	{
 		$idtest = $_POST['deluser'];

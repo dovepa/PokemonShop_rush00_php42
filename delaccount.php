@@ -23,9 +23,9 @@ if (!empty($_POST) && ($_POST['submit'] === "OK"))
             $user = mysqli_fetch_assoc($req);
             if($passwd === $user['password'])
             {
-				$_SESSION['auth'] = $user;
 				require_once 'required/database.php';
-				$req = mysqli_query($mysqli, "DELETE FROM users WHERE id='".$user['id']."'");
+                $id = mysqli_real_escape_string($mysqli, $_SESSION['auth']['id']);
+				$req = mysqli_query($mysqli, "DELETE FROM users WHERE id='".$id."'");
                 $_SESSION['msg'][] = "Votre compte a ete suprimer !";
                 header('Location: logout.php');
                 exit();

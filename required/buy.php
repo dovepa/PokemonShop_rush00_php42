@@ -21,12 +21,13 @@
 		}
 		$id = $_SESSION['auth']['id'];
 		require_once('database.php');
+		$id = mysqli_real_escape_string($mysqli, $id);
+		$cmd_data = mysqli_real_escape_string($mysqli, $cmd_data);
+		$total = mysqli_real_escape_string($mysqli, $total);
 		$req = mysqli_query($mysqli, "INSERT INTO `orders` (`buyer_id`, `cmd_data`, `total_cmd`) VALUES ('$id', '$cmd_data', '$total');");
 		unset($_SESSION['cart']);
 		$_SESSION['msg'][] = "Votre commande est archiver!";
 		header('Location: index.php');
 		exit();
 	}
-
-
 ?>

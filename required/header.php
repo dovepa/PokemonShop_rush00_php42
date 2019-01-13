@@ -37,6 +37,7 @@
 				<?php
 					require_once 'required/database.php';
 					$id = $_SESSION['auth']['id'];
+					$id = mysqli_real_escape_string($mysqli, $id);
 					if ($req = mysqli_query($mysqli, "SELECT * FROM manager WHERE user_id='" .intval($id) ."'"))
 					{
 						while ($user = mysqli_fetch_assoc($req))

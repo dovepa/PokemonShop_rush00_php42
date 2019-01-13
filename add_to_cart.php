@@ -1,6 +1,5 @@
 <?php
 	if (session_status() == PHP_SESSION_NONE) { session_start(); }
-
 	if (isset($_GET['id']))
 	{
 		if (is_numeric($_GET['id']) && $_GET['name'] !== NULL)
