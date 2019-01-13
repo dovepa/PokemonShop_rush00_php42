@@ -1,7 +1,7 @@
-<?php require_once('required/admin.php'); ?>
-<?php require_once('required/header.php'); ?>
+<?php require_once('data/admin.php'); ?>
+<?php require_once('data/header.php'); ?>
 <div class="containermiddle">
-<?php require_once('required/msg.php'); ?>
+<?php require_once('data/msg.php'); ?>
 	<div class="admdiv">
 		<p>Mettre un utilisateur Admin</p>
 		<form method="POST">
@@ -90,7 +90,7 @@
 			</thead>
 			<tbody>
 				<?php
-					require_once 'required/database.php';
+					require_once 'data/database.php';
 					$req = mysqli_query($mysqli, 'SELECT * FROM products');
 					while ($row = mysqli_fetch_assoc($req)) {
 						echo "<tr><th><p>" .$row['id'] ."</p></th><th><p>" .$row['name'] ."</p></th><th><p>" .$row['price'] ."</p></th></tr>";
@@ -111,7 +111,7 @@
 			</thead>
 			<tbody>
 				<?php
-					require_once 'required/database.php';
+					require_once 'data/database.php';
 					$req = mysqli_query($mysqli, 'SELECT * FROM prod_categorie');
 					while ($row = mysqli_fetch_assoc($req)) {
 						echo "<tr><th><p>" .$row['prod_id'] ."</p></th><th><p>" .$row['cat_id'] ."</p></th></tr>";
@@ -132,7 +132,7 @@
 			</thead>
 			<tbody>
 				<?php
-					require_once 'required/database.php';
+					require_once 'data/database.php';
 					$req = mysqli_query($mysqli, 'SELECT * FROM categories_ref');
 					while ($row = mysqli_fetch_assoc($req)) {
 						echo "<tr><th><p>" .$row['id'] ."</p></th><th><p>" .$row['name'] ."</p></th></tr>";
@@ -153,7 +153,7 @@
 			</thead>
 			<tbody>
 				<?php
-					require_once 'required/database.php';
+					require_once 'data/database.php';
 					$req = mysqli_query($mysqli, 'SELECT * FROM users');
 					while ($row = mysqli_fetch_assoc($req)) {
 						echo "<tr><th><p>" .$row['id'] ."</p></th><th><p>" .$row['username'] ."</p></th></tr>";
@@ -176,7 +176,7 @@
 			</thead>
 			<tbody>
 				<?php
-					require_once 'required/database.php';
+					require_once 'data/database.php';
 					$req = mysqli_query($mysqli, 'SELECT * FROM orders');
 					while ($row = mysqli_fetch_assoc($req)) {
 						$order_id = substr($row['id'], 0, 5);
@@ -187,4 +187,4 @@
 		</table>
 	</div>
 </div>
-<?php require_once('required/footer.php'); ?>
+<?php require_once('data/footer.php'); ?>

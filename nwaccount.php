@@ -38,7 +38,7 @@ if (!empty($_POST) && ($_POST['submit'] === "OK"))
         header('Location: nwaccount.php');
         exit();
     }
-    require_once 'required/database.php';
+    require_once 'data/database.php';
     $pusername = mysqli_real_escape_string($mysqli, $_POST['newlogin']);
     $req = mysqli_query($mysqli, "SELECT id FROM users WHERE username='" .$pusername ."'");
     $user = mysqli_fetch_assoc($req);
@@ -48,7 +48,7 @@ if (!empty($_POST) && ($_POST['submit'] === "OK"))
         header('Location: nwaccount.php');
         exit();
     }
-    require_once 'required/database.php';
+    require_once 'data/database.php';
     $password = hash('whirlpool', $_POST['newpasswd']."jesuisunecledekryptageyoloetjaimeleslikornes");
     $password = mysqli_real_escape_string($mysqli, $password);
     $req = mysqli_query($mysqli, "INSERT INTO users SET username ='" .$pusername ."', password ='" .$password ."'");
@@ -57,9 +57,9 @@ if (!empty($_POST) && ($_POST['submit'] === "OK"))
     exit();
 }
 ?>
-<?php require_once('required/header.php'); ?>
+<?php require_once('data/header.php'); ?>
 		<div class="containermiddle">
-        <?php require_once('required/msg.php'); ?>
+        <?php require_once('data/msg.php'); ?>
             <div class="help">
                 <p>Merci de vous inscrire sur notre site.</p>
                 <p>Besoin d'Assistance ?</p>
@@ -76,5 +76,5 @@ if (!empty($_POST) && ($_POST['submit'] === "OK"))
                 <a href="modifaccount.php"><p>modifier son mot de passe</p></a>
             </div>
 		</div>
-<?php require_once('required/footer.php'); ?>
+<?php require_once('data/footer.php'); ?>
 

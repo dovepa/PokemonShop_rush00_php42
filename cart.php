@@ -1,8 +1,8 @@
-<?php require_once('required/header.php'); ?>
+<?php require_once('data/header.php'); ?>
 		<div class="containermiddle">
 			<?php
-				require_once('required/msg.php');
-				require_once('required/database.php');
+				require_once('data/msg.php');
+				require_once('data/database.php');
 
 				if ($_GET["submit"] === "Vider mon Pannier")
 				{
@@ -26,7 +26,7 @@
 						header('Location: login.php');
 						exit();
 					}
-					require_once('required/buy.php');
+					require_once('data/buy.php');
 				}
 				if ($_SESSION['cart'] != NULL)
 				{
@@ -66,4 +66,4 @@
 				}
 			?>
 		</div>
-<?php require_once('required/footer.php'); ?>
+<?php require_once('data/footer.php'); ?>

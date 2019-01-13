@@ -14,7 +14,7 @@ if (!empty($_POST) && ($_POST['submit'] === "OK"))
             header('Location: delaccount.php');
             exit();
 	    }
-        require_once 'required/database.php';
+        require_once 'data/database.php';
         $passwd = hash('whirlpool', $_POST['passwd']."jesuisunecledekryptageyoloetjaimeleslikornes");
 	    $login = mysqli_real_escape_string($mysqli, $_POST['login']);
 	    $passwd = mysqli_real_escape_string($mysqli, $passwd);
@@ -23,7 +23,7 @@ if (!empty($_POST) && ($_POST['submit'] === "OK"))
             $user = mysqli_fetch_assoc($req);
             if($passwd === $user['password'])
             {
-				require_once 'required/database.php';
+				require_once 'data/database.php';
                 $id = mysqli_real_escape_string($mysqli, $_SESSION['auth']['id']);
 				$req = mysqli_query($mysqli, "DELETE FROM users WHERE id='".$id."'");
                 $_SESSION['msg'][] = "Votre compte a ete suprimer !";
@@ -44,9 +44,9 @@ if (!empty($_POST) && ($_POST['submit'] === "OK"))
 }
 ?>
 
-<?php require_once('required/header.php'); ?>
+<?php require_once('data/header.php'); ?>
 		<div class="containermiddle">
-            <?php require_once('required/msg.php'); ?>
+            <?php require_once('data/msg.php'); ?>
             <div class="help">
                 <p>Merci de vous identifier a nouveau afin de supprimer votre compte.</p>
                 <p>Besoin d'Assistance ?</p>
@@ -60,4 +60,4 @@ if (!empty($_POST) && ($_POST['submit'] === "OK"))
                 </form>
             </div>
 		</div>
-<?php require_once('required/footer.php'); ?>
+<?php require_once('data/footer.php'); ?>

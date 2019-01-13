@@ -1,4 +1,4 @@
-<?php require_once('required/header.php'); ?>
+<?php require_once('data/header.php'); ?>
 		<div class="containermiddle">
             <div class="help">
                 <p>Vous modifiez votre mot de passe,</p>
@@ -15,4 +15,4 @@
                 <a href="nwaccount.php"><p>Pas de compte: créer son compte</p></a>
             </div>
 		</div>
-<?php require_once('required/footer.php'); ?>
+<?php require_once('data/footer.php'); ?>

@@ -7,7 +7,7 @@ if (empty($_SESSION['auth']['id']))
 	exit();
 }
 
-require_once 'required/database.php';
+require_once 'data/database.php';
 $id = $_SESSION['auth']['id'];
 $id = mysqli_real_escape_string($mysqli, $id);
 if ($req = mysqli_query($mysqli, "SELECT * FROM manager WHERE user_id='" .intval($id) ."'"))
@@ -35,7 +35,7 @@ else
 	{
 		if (!empty($_POST['aduser']) && is_numeric($_POST['aduser']))
 		{
-			require_once 'required/database.php';
+			require_once 'data/database.php';
 			$aduser = mysqli_real_escape_string($mysqli, intval($_POST['aduser']));
 			$req = mysqli_query($mysqli, "SELECT id FROM manager WHERE id='" .intval($aduser) ."';");
 			if ($user = mysqli_fetch_assoc($req))
@@ -69,7 +69,7 @@ else
 				header('Location: manager.php');
 				exit();
 			}
-			require_once 'required/database.php';
+			require_once 'data/database.php';
 			$name = mysqli_real_escape_string($mysqli, $_POST['name']);
 			$price = mysqli_real_escape_string($mysqli, intval($_POST['price']));
 			$img = mysqli_real_escape_string($mysqli, $_POST['img']);
@@ -97,14 +97,14 @@ else
 				header('Location: manager.php');
 				exit();
 			}
-			require_once 'required/database.php';
+			require_once 'data/database.php';
 			$id = mysqli_real_escape_string($mysqli, $_POST['modid']);
 			$price = mysqli_real_escape_string($mysqli, intval($_POST['modprice']));
 			$req = mysqli_query($mysqli, "SELECT id FROM products WHERE id='" .intval($id) ."';");
 			$prod = mysqli_fetch_assoc($req);
 			if ($prod)
 			{
-				require_once 'required/database.php';
+				require_once 'data/database.php';
 				$req = mysqli_query($mysqli, "UPDATE products SET price='".floatval($price)."' WHERE id='".intval($id) ."';;");
 				$_SESSION['msg'][] = "Modif OK";
 				header('Location: manager.php');
@@ -136,7 +136,7 @@ else
 				header('Location: manager.php');
 				exit();
 			}
-			require_once 'required/database.php';
+			require_once 'data/database.php';
 			$catid = mysqli_real_escape_string($mysqli, $_POST['catid']);
 			$prodid = mysqli_real_escape_string($mysqli, intval($_POST['prodid']));
 			$req = mysqli_query($mysqli, "SELECT id FROM prod_categorie WHERE prod_id='" .intval($prodid) ."' AND cat_id='" .intval($catid) ."';;");
@@ -149,7 +149,7 @@ else
 			}
 			else
 			{
-				require_once 'required/database.php';
+				require_once 'data/database.php';
 				$req = mysqli_query($mysqli, "INSERT INTO `prod_categorie` (`prod_id`, `cat_id`) VALUES (" .intval($prodid) .", " .intval($catid) .");");
 				$_SESSION['msg'][] = "Modif OK";
 				header('Location: manager.php');
@@ -175,14 +175,14 @@ else
 				header('Location: manager.php');
 				exit();
 			}
-			require_once 'required/database.php';
+			require_once 'data/database.php';
 			$catid = mysqli_real_escape_string($mysqli, $_POST['delcatid']);
 			$prodid = mysqli_real_escape_string($mysqli, intval($_POST['delprodid']));
 			$req = mysqli_query($mysqli, "SELECT id FROM prod_categorie WHERE prod_id='" .intval($prodid) ."' AND cat_id='" .intval($catid) ."';");
 			$result = mysqli_fetch_assoc($req);
 			if ($result)
 			{
-				require_once 'required/database.php';
+				require_once 'data/database.php';
 				$req = mysqli_query($mysqli, "DELETE FROM prod_categorie WHERE prod_id='" .intval($prodid) ."' AND cat_id='" .intval($catid) ."';");
 				$_SESSION['msg'][] = "Modif OK";
 				header('Location: manager.php');
@@ -215,13 +215,13 @@ else
 				header('Location: manager.php');
 				exit();
 			}
-			require_once 'required/database.php';
+			require_once 'data/database.php';
 			$delproductid = mysqli_real_escape_string($mysqli, intval($_POST['delproductid']));
 			$req = mysqli_query($mysqli, "SELECT id FROM products WHERE id='" .intval($delproductid)."';");
 			$result = mysqli_fetch_assoc($req);
 			if ($result)
 			{
-				require_once 'required/database.php';
+				require_once 'data/database.php';
 				$req = mysqli_query($mysqli, "DELETE FROM products WHERE id ='" .intval($delproductid) ."';");
 				$req = mysqli_query($mysqli, "DELETE FROM prod_categorie WHERE prod_id='" .intval($delproductid)."';");
 				$_SESSION['msg'][] = "Supression OK";
@@ -244,12 +244,12 @@ else
 		}
 	}
 
-	
+
 	if ($_POST['addcbtn'] === "OK")
 	{
 		if (!empty($_POST['addcname']))
 		{
-			require_once 'required/database.php';
+			require_once 'data/database.php';
 			$addcname = mysqli_real_escape_string($mysqli, $_POST['addcname']);
 			$req = mysqli_query($mysqli, "INSERT INTO `categories_ref` (`name`) VALUES ('".$addcname."');");
 			$_SESSION['msg'][] = "La categorie est ajouter";
@@ -264,7 +264,7 @@ else
 		}
 	}
 
-	
+
 	if ($_POST['rmcbtn'] === "OK")
 	{
 		if (!empty($_POST['rmcid']))
@@ -275,13 +275,13 @@ else
 				header('Location: manager.php');
 				exit();
 			}
-			require_once 'required/database.php';
+			require_once 'data/database.php';
 			$rmcid = mysqli_real_escape_string($mysqli, $_POST['rmcid']);
 			$req = mysqli_query($mysqli, "SELECT * FROM categories_ref WHERE id='" .intval($rmcid)."';");
 			$result = mysqli_fetch_assoc($req);
 			if ($result)
 			{
-				require_once 'required/database.php';
+				require_once 'data/database.php';
 				$req = mysqli_query($mysqli, "DELETE FROM prod_categorie WHERE cat_id='" .intval($rmcid) ."';");
 				$req = mysqli_query($mysqli, "DELETE FROM categories_ref WHERE id ='" .intval($rmcid) ."';");
 				$_SESSION['msg'][] = "La categorie est supprimer";
@@ -313,14 +313,14 @@ else
 				header('Location: manager.php');
 				exit();
 			}
-			require_once 'required/database.php';
+			require_once 'data/database.php';
 			$idcat = mysqli_real_escape_string($mysqli, intval($_POST['idcat']));
 			$modcat = mysqli_real_escape_string($mysqli, $_POST['modcat']);
 			$req = mysqli_query($mysqli, "SELECT id FROM categories_ref WHERE id='" .intval($idcat) ."';");
 			$prod = mysqli_fetch_assoc($req);
 			if ($prod)
 			{
-				require_once 'required/database.php';
+				require_once 'data/database.php';
 				$req = mysqli_query($mysqli, "UPDATE categories_ref SET name='".$modcat."' WHERE id='".intval($idcat) ."';;");
 				$_SESSION['msg'][] = "Modif OK";
 				header('Location: manager.php');
@@ -347,7 +347,7 @@ else
 	{
 		if (!empty($_POST['newuserid']) && !empty($_POST['newuserpasswd']))
 		{
-			require_once 'required/makeaccount.php';
+			require_once 'data/makeaccount.php';
 		}
 		else
 		{
@@ -363,7 +363,7 @@ else
 		if (!empty($testid) && is_numeric($testid))
 		{
 
-			require_once 'required/database.php';
+			require_once 'data/database.php';
 			$testid = mysqli_real_escape_string($mysqli, intval($testid));
 			$req = mysqli_query($mysqli, "SELECT id FROM manager WHERE user_id='$testid';");
 			if ($user = mysqli_fetch_assoc($req))
@@ -404,12 +404,12 @@ else
 		$idtest = $_POST['deluser'];
 		if (!empty($idtest))
 		{
-			require_once 'required/database.php';
+			require_once 'data/database.php';
 			$testid = mysqli_real_escape_string($mysqli, intval($idtest));
 			$req = mysqli_query($mysqli, "SELECT * FROM users WHERE id='$idtest'");
 			if ($user = mysqli_fetch_assoc($req))
 			{
-				require_once 'required/database.php';
+				require_once 'data/database.php';
 				$req = mysqli_query($mysqli, "DELETE FROM users WHERE id='$idtest'");
 				$req = mysqli_query($mysqli, "DELETE FROM manager WHERE user_id='$idtest'");
 				$_SESSION['msg'][] = "Le compte a ete suprimer ";

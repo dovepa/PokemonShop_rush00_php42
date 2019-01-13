@@ -14,7 +14,7 @@ if (!empty($_POST) && ($_POST['submit'] === "OK"))
             header('Location: login.php');
             exit();
 	    }
-        require_once 'required/database.php';
+        require_once 'data/database.php';
         $passwd = hash('whirlpool', $_POST['passwd']."jesuisunecledekryptageyoloetjaimeleslikornes");
 	    $login = mysqli_real_escape_string($mysqli, $_POST['login']);
 	    $passwd = mysqli_real_escape_string($mysqli, $passwd);
@@ -26,7 +26,7 @@ if (!empty($_POST) && ($_POST['submit'] === "OK"))
                 $_SESSION['auth'] = $user;
                 $_SESSION['msg'][] = "Vous etes connecter !";
                 if ( $_SESSION['buy'] === 1)
-                    require_once('required/buy.php');
+                    require_once('data/buy.php');
                 else {
                 header('Location: index.php');
                 exit(); }
@@ -45,9 +45,9 @@ if (!empty($_POST) && ($_POST['submit'] === "OK"))
 }
 ?>
 
-<?php require_once('required/header.php'); ?>
+<?php require_once('data/header.php'); ?>
 		<div class="containermiddle">
-            <?php require_once('required/msg.php'); ?>
+            <?php require_once('data/msg.php'); ?>
             <div class="help">
                 <p>Merci de vous identifier afin d'accéder à votre compte.</p>
                 <p>Besoin d'Assistance ?</p>
@@ -63,5 +63,5 @@ if (!empty($_POST) && ($_POST['submit'] === "OK"))
                 <a href="modifaccount.php"><p>modifier son mot de passe</p></a>
             </div>
 		</div>
-<?php require_once('required/footer.php'); ?>
+<?php require_once('data/footer.php'); ?>
 

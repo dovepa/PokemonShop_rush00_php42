@@ -18,7 +18,7 @@
          exit();
      }
 
-     require_once 'required/database.php';
+     require_once 'data/database.php';
      $pusername = mysqli_real_escape_string($mysqli, $_POST['newuserid']);
      $req = mysqli_query($mysqli, "SELECT id FROM users WHERE username='" .$pusername ."'");
      $user = mysqli_fetch_assoc($req);
@@ -28,7 +28,7 @@
          header('Location: manager.php');
          exit();
      }
-     require_once 'required/database.php';
+     require_once 'data/database.php';
      $password = hash('whirlpool', $_POST['newuserpasswd']."jesuisunecledekryptageyoloetjaimeleslikornes");
      $password = mysqli_real_escape_string($mysqli, $password);
      $req = mysqli_query($mysqli, "INSERT INTO users SET username ='" .$pusername ."', password ='" .$password ."'");

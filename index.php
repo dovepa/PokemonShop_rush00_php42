@@ -1,6 +1,6 @@
-<?php require_once('required/header.php'); ?>
+<?php require_once('data/header.php'); ?>
 		<div class="containermiddle">
-			<?php require_once('required/msg.php'); ?>
+			<?php require_once('data/msg.php'); ?>
 			<div id="indexpub">
 			<?php
 				$_SESSION['buy'] = 0;
@@ -16,8 +16,8 @@
 			</div>
 			<div class="centerdiv">
 			<ul class="products">
-				<?php require_once('required/product.php'); ?>
+				<?php require_once('data/product.php'); ?>
 			</ul>
 			</div>
 		</div>
-<?php require_once('required/footer.php'); ?>
+<?php require_once('data/footer.php'); ?>

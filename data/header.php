@@ -35,7 +35,7 @@
 				</div>
 
 				<?php
-					require_once 'required/database.php';
+					require_once 'data/database.php';
 					$id = $_SESSION['auth']['id'];
 					$id = mysqli_real_escape_string($mysqli, $id);
 					if ($req = mysqli_query($mysqli, "SELECT * FROM manager WHERE user_id='" .intval($id) ."'"))
