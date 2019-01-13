@@ -34,6 +34,26 @@
 					</div>
 				</div>
 
+				<?php
+					require_once 'required/database.php';
+					$id = $_SESSION['auth']['id'];
+					if ($req = mysqli_query($mysqli, "SELECT * FROM manager WHERE user_id='" .intval($id) ."'"))
+					{
+						while ($user = mysqli_fetch_assoc($req))
+						{
+							if (isset($user))
+							{
+								$i = 1;
+							}
+						}
+						if (($i == 1) && isset($id))
+						{
+							echo '<div class="menu">
+							<div class="title"><a href="manager.php">Manager</a></div>
+							</div>';
+						}
+					}
+				?>
 
 				<div class="menu">
 				<?php
@@ -58,7 +78,7 @@
 					{
 						foreach ($_SESSION['cart'] as $val)
 							$i++;
-						$pro = "(".$i.")";
+						$pro = "(".($i-1).")";
 					}
 				?>
 				<div class="title"><a href="cart.php">Pannier <?php echo $pro ?></a></div>

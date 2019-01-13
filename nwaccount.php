@@ -2,7 +2,7 @@
 if (session_status() == PHP_SESSION_NONE) { session_start(); }
 if (isset($_SESSION['auth']->id))
 {
-    $_SESSION['msg'][] = "You cannot acces this page.";
+    $_SESSION['msg'][] = "Vous etes deja connecter.";
     header('Location: index.php');
     exit();
 }
@@ -44,7 +44,7 @@ if (!empty($_POST) && ($_POST['submit'] === "OK"))
     $user = mysqli_fetch_assoc($req);
     if($user)
     {
-        $_SESSION['msg'][] = "Username already taken.";
+        $_SESSION['msg'][] = "Ce pseudo existe déjà.";
         header('Location: nwaccount.php');
         exit();
     }
@@ -57,7 +57,6 @@ if (!empty($_POST) && ($_POST['submit'] === "OK"))
     exit();
 }
 ?>
-
 <?php require_once('required/header.php'); ?>
 		<div class="containermiddle">
         <?php require_once('required/msg.php'); ?>

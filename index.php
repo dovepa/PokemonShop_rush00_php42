@@ -3,6 +3,7 @@
 			<?php require_once('required/msg.php'); ?>
 			<div id="indexpub">
 			<?php
+				$_SESSION['buy'] = 0;
 				if ($_GET['cat'] == NULL)
 				{
 					echo "<p class='ipub'>D'accord, attraper un max de Pokémon pour remplir son Pokédex, c'est amusant.

@@ -236,3 +236,10 @@ ul.products li {
 	background-color: green;
 	color: white;
   }
+
+.admdiv{
+	border: 1px solid black;
+	margin: 5px;
+	padding: 5px;
+	background: rgba(0, 0, 0, 0.1);
+}
