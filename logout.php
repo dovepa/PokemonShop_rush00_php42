@@ -2,12 +2,14 @@
 	if (session_status() == PHP_SESSION_NONE) { session_start(); }
 	if (!isset($_SESSION['auth']))
 	{
-		$_SESSION['flash']['danger'] = "You cannot access this page.";
+		$_SESSION['msg'][''] = "Vous n'etes pas connecter.";
 	}
 	else
 	{
 		unset($_SESSION['auth']);
+		unset($_SESSION['cart']);
 	}
+	$_SESSION['msg'][] = "Vous etes bien deconnecter";
 	header('Location: index.php');
 	exit();
 ?>

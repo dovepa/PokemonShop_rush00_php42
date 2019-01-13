@@ -26,14 +26,13 @@
 							  `id` int(11) NOT NULL AUTO_INCREMENT,
 							  `user_id` int(11) NOT NULL,
 							  PRIMARY KEY (`id`)
-							) ENGINE=MyISAM DEFAULT CHARSET=utf8;");
+							) ENGINE=InnoDB AUTO_INCREMENT=1  DEFAULT CHARSET=utf8;");
+	$req = mysqli_query($mysqli, "INSERT INTO `manager` (`id`, `user_id`) VALUES (1, 1);");
 	$req = mysqli_query($mysqli, "DROP TABLE IF EXISTS `orders`;");
 	$req = mysqli_query($mysqli, "CREATE TABLE IF NOT EXISTS `orders` (
 							  `id` int(11) NOT NULL AUTO_INCREMENT,
 							  `buyer_id` int(11) NOT NULL,
-							  `cmd_id` varchar(255) NOT NULL,
-							  `product` int(11) NOT NULL,
-							  `qty` int(11) NOT NULL,
+							  `cmd_data` varchar(255) NOT NULL,
 							  `total_cmd` float NOT NULL,
 							  PRIMARY KEY (`id`)
 							) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;");
@@ -79,12 +78,10 @@
 							  `password` varchar(255) NOT NULL,
 							  PRIMARY KEY (`id`)
 							) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;");
-	$req = mysqli_query($mysqli, "INSERT INTO `users` (`id`, `username`, `password`) VALUES	(1, 'dove', 'dove');");
-
 	if (session_status() == PHP_SESSION_NONE) { session_start(); }
 	if ($_SESSION['auth'] != NULL)
 		unset($_SESSION['auth']);
-	$_SESSION['msg'][] = "OK : install bdd ok \n ->>> Maintenant crée un nouvel user avec le login : manager";
+	$_SESSION['msg'][] = "OK : install bdd ok \n ->>> Maintenant créé un nouvel user, le premier user sera le premier manager de la boutique.";
 	header('Location: index.php');
 	exit();
 

@@ -13,7 +13,7 @@
 				}
 			?>
 			</div>
-			<div class="productdiv">
+			<div class="centerdiv">
 			<ul class="products">
 				<?php require_once('required/product.php'); ?>
 			</ul>

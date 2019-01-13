@@ -1,7 +1,7 @@
 		<div class="containerfooter">
 			<p class="footer">Salut
 			<?php
-				echo $_SESSION['auth'];
+				echo $_SESSION['auth']['username'];
 			?>
 			, Rejoins nous sur Facebook !</p>
 			<a href="http://www.facebook.com/"><img src="img/pokefoot.png" id="pokefoot" title="poke" /></a>

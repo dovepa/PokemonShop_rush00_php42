@@ -38,8 +38,11 @@
 				<div class="menu">
 				<?php
 				if (isset($_SESSION['auth']['id'])){ ?>
-					<div class="title"><a href="required/logout.php">Déconnection</a></div>
-				<?php }
+					<div class="title"><a href="logout.php">Déconnection</a></div>
+					<div class="menu-content">
+						<a href="delaccount.php">Supprimer mon compte</a>
+					</div>
+				<?php  }
 				else{ ?>
 					<div class="title"><a href="login.php">Mon Compte</a></div>
 					<div class="menu-content">

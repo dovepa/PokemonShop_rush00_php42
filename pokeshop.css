@@ -19,7 +19,7 @@ p.msg{
 
  .msgdiv{
 	margin-top: 25px;
-	margin-left: 3%;
+	margin-left: 20px;
 	border: 3px;
 	width: 500px;
 	border-style: solid;
@@ -196,6 +196,43 @@ ul.products li {
 		z-index: 1;
 }
 
-.productdiv {
+.centerdiv {
 	text-align: center;
 }
+
+.button {
+	background-color: #4CAF50; /* Green */
+	border: none;
+	color: white;
+	padding: 16px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	-webkit-transition-duration: 0.4s; /* Safari */
+	transition-duration: 0.4s;
+	cursor: pointer;
+  }
+
+  .buttondel {
+	background-color: white;
+	color: black;
+	border: 2px solid #f44336;
+  }
+
+  .buttondel:hover {
+	background-color: #f44336;
+	color: white;
+  }
+
+  .buttonpay {
+	background-color: white;
+	color: black;
+	border: 2px solid green;
+  }
+
+  .buttonpay:hover {
+	background-color: green;
+	color: white;
+  }
