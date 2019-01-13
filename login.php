@@ -9,7 +9,7 @@ if (isset($_SESSION['auth']['id']))
 }
 if (!empty($_POST) && ($_POST['submit'] === "OK"))
 {
-		if(empty($_POST['login']) && empty($_POST['passwd'])){
+		if(empty($_POST['login']) || empty($_POST['passwd'])){
             $_SESSION['msg'][] = "Merci de mettre un identifiant et un mot de passe";
             header('Location: login.php');
             exit();
